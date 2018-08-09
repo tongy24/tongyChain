@@ -11,7 +11,7 @@ import json
 from hashlib import sha256
 import time
 import datetime
-
+import os
 # # Creating a single block
 
 # In[2]:
@@ -128,7 +128,7 @@ from flask import render_template, redirect
 import requests
 
 app = Flask(__name__)
-CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
+CONNECTED_NODE_ADDRESS = str(os.curdir)
 blockchain = Blockchain()
 peers = set()
 
