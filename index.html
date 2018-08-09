@@ -1,0 +1,115 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+	<br>
+	<center>
+	<div class = "box"><p><intro>
+    <span style='font-weight: bold; font-size: 30'>
+     The 'tongyChain'
+     </span></intro></p></div>
+    </center>
+    <br>
+    <div class = "box"><p><intro>
+    <center><span margin=  '30px 0 0 0';> The 'tongyChain' is a blockchain prototype that was coded in Python using a tutorial from IBM.
+     <br>
+     <br>
+     </span></center>
+     </intro></p></div>
+	<center>
+	<form action="/submit" id="textform" method="post">
+		<input type="text" name="author" placeholder="Your name">
+		<br>
+		<br>
+		<textarea name="content" rows="2" cols="40" placeholder="So... what do you think? "></textarea>
+	    <br>
+	    <br>
+	    <input type="submit" value="Post">
+	</form>
+	</center>
+		<br>
+		<br>
+	<center>
+		<a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
+		<br>
+		<br>
+		<br>
+		<a href="/"><button>Resync</button></a>
+	</center>
+	<div style="margin: 20px;">
+	
+    {% for post in posts %}
+    <div class="post_box">
+	   <div class="post_box-header">
+	      <div class="post_box-options"><button class="option-btn">Reply</button></div>
+	      <div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{post.author[0]}}</div>
+	      <div class="name-header">{{post.author}}</div>
+	      <div class="post_box-subtitle"> Posted at <i>{{readable_time(post.timestamp)}}</i></div>
+	   </div>
+	   <div>
+	      <div class="post_box-body">
+	         <p>{{post.content}}</p>
+	      </div>
+	   </div>
+	</div>
+	{% endfor %}
+
+	<style>
+		.post_box {
+		    background: #000;
+		    padding: 12px 0px 0px 12px;
+		    margin-top: 0px;
+		    margin-bottom: 8px;
+		    border-top: 1px solid #fff;
+		}
+		.post_box-header {
+		    padding-bottom: 12px;
+		    color: #fff ;
+		}
+		.post_box-avatar {
+		    width: 38px;
+		    height: 38px;
+		    border-radius: 50%;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    color: white;
+		    font-size: 22px;
+		    float: left;
+		    margin-right: 16px;
+		    border: 1px solid #fff;
+		    box-shadow: 0px 0px 0px 2px #fff;
+		}
+		.post_box-avatar::after {
+		    content:"";
+		    display:block;
+		}
+		.post_box-name {
+		    font-weight: bold;
+		    color: #fff;
+		}
+		.post_box-subtitle {
+		    color: #fff;
+		}
+		.post_box-body {
+		    margin-top: 16px;
+		    margin-bottom: 8px;
+		}
+		.post_box-options {
+		    float: right;
+		}
+		.option-btn {
+		    background: #000;
+		    border: none;
+		    color: #fff;
+		    padding: 7px;
+		    cursor: pointer;
+		    font-size: 14px;
+		    margin-left: 2px;
+		    margin-right: 2px;
+		    outline: none;
+		    height: 42px;
+		}
+	</style>
+    </div>
+{% endblock %}
