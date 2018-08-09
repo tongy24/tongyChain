@@ -322,7 +322,7 @@ def fetch_posts():
 
 
          
-app.run(debug = True, port = 8000)
+app.run(debug = True)
 
 # # Building and running the web interface
 
