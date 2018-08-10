@@ -1,3 +1,3 @@
-from Blockchain import app as application
-import sys
-sys.path.insert(0, 'tongychain/Blockchain.py')
+
+# import flask app but need to call it "application" for WSGI to work
+from Blockchain import app as application  # noqa
