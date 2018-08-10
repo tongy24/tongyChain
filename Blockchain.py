@@ -322,7 +322,7 @@ def fetch_posts():
 
 
 if __name__ == '__main__':         
-	app.run(debug = True)
+	app.run()
 
 # # Building and running the web interface
 
