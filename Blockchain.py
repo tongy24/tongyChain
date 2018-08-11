@@ -128,7 +128,7 @@ from flask import render_template, redirect
 import requests
 
 app = Flask(__name__)
-CONNECTED_NODE_ADDRESS = str(os.curdir)
+CONNECTED_NODE_ADDRESS =  "http://127.0.0.1:8000"
 blockchain = Blockchain()
 peers = set()
 
